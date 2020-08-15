@@ -11,6 +11,14 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { PagesComponent } from './pages/pages.component';
 
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+//EndFirebase
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +31,14 @@ import { PagesComponent } from './pages/pages.component';
     AppRoutingModule,
     PagesModule,
     SharedModule,
-    RouterModule.forRoot(AppRoutes, {useHash:true})
+    RouterModule.forRoot(AppRoutes, {useHash:true}),
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireModule,
   ],
-  providers: [],
+  providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
