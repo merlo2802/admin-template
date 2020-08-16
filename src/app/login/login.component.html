@@ -4,16 +4,34 @@
 <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../assets/images/background/login-register.jpg);">
   <div class="login-box card">
       <div class="card-body">
-          <form class="form-horizontal form-material" id="loginform" action="index.html">
+          <form (ngSubmit)='login(Fr)'
+                #Fr="ngForm"
+                class="form-horizontal form-material" id="loginform" action="index.html">
               <a href="javascript:void(0)" class="text-center db"><img src="../assets/images/logo-icon.png" alt="Home" /><br/><img src="../assets/images/logo-text.png" alt="Home" /></a>
               <div class="form-group m-t-40">
                   <div class="col-xs-12">
-                      <input class="form-control" type="text" required="" placeholder="Usuario">
+                      <input  class="form-control" 
+                              type="text" 
+                              required
+                              email
+                              name="email"
+                              [(ngModel)]="usuario.email"
+                              placeholder="Usuario">
+                      <span *ngIf="Fr.touched  && Fr.controls['email'].errors"
+                            class="text-danger animated fadeIn">El correo es obligatorio</span>
                   </div>
               </div>
               <div class="form-group">
                   <div class="col-xs-12">
-                      <input class="form-control" type="password" required="" placeholder="Contraseña">
+                      <input  class="form-control" 
+                              type="password" 
+                              required
+                              name="password"
+                              minlength="6"
+                              [(ngModel)]="usuario.password"
+                              placeholder="Contraseña">
+                      <span *ngIf="Fr.touched  && Fr.controls['password'].errors"
+                            class="text-danger animated fadeIn">Al menos 6 letras</span>
                   </div>
               </div>
               <div class="form-group row">
@@ -26,12 +44,13 @@
               </div>
               <div class="form-group text-center m-t-20">
                   <div class="col-xs-12">
-                      <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded" type="submit">Ingresar</button>
+                      <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded" [disabled]="!Fr.valid" >Ingresar</button>
                   </div>
               </div>
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                      <div class="social"><a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a> <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fa fa-google-plus"></i> </a> </div>
+                      <div class="social">
+                        <a (click)="loginGoogle()" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fa fa-google-plus"></i> </a> </div>
                   </div>
               </div>
               <div class="form-group m-b-0">
@@ -54,13 +73,15 @@
               </div>
               <div class="form-group text-center m-t-20">
                   <div class="col-xs-12">
-                      <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+                      <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light">Reset</button>
                   </div>
               </div>
           </form>
       </div>
   </div>
 </section>
+
+<!-- <ng2-toasty></ng2-toasty> -->
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
