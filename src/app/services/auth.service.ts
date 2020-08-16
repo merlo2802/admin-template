@@ -18,14 +18,12 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private url = environment.signInUrlFirebase;
   private apikey = environment.apiKeyFirebase;
-  // static UNKNOWN_USER = new AuthInfo(null);
   //para crear nuevos usuarios
   //https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
   //login 
   //https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
   usuario;
   userToken: string;
-  // public authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
   constructor(
     private auth: AngularFireAuth,
     public afdb: AngularFireDatabase,
@@ -77,6 +75,7 @@ export class AuthService {
   logout() {
 
   }
+  
   login(usuario : Usuario) {
     const authData = {
       email: usuario.email,

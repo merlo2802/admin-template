@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { NgxSpinnerService } from 'ngx-spinner';
-// import { ApisService } from '../services/apis.service';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../models/models.interface';
 import { NgForm } from '@angular/forms';
-// import { createHostListener } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +11,6 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   usuario: Usuario;
-  email: any = 'admin@gmail.com';
-  password: any = '123456';
   logeado;
   constructor(
     private auth: AuthService,
