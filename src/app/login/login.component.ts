@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ApisService } from '../services/apis.service';
+// import { NgxSpinnerService } from 'ngx-spinner';
+// import { ApisService } from '../services/apis.service';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../models/models.interface';
 import { NgForm } from '@angular/forms';
-import { createHostListener } from '@angular/compiler/src/core';
+// import { createHostListener } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-login',
