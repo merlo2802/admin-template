@@ -5,12 +5,12 @@ import { BlankComponent } from './core/blank/blank.component';
 
 export const AppRoutes: Routes = [
   {
-    path:'',
+    path:'dashboard',
     component:PagesComponent,
     loadChildren: './pages/pages.module#PagesModule'
   },
   {
-    path:'autenticacion',
+    path:'',
     component:BlankComponent,
     loadChildren: './autenticacion/autenticacion.module#AutenticacionModule'
   },

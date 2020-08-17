@@ -6,7 +6,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 
 const PagesRoutes: Routes = [
   {
-    path: 'dashboard', 
+    path: '', 
     component: DashboardComponent
   },
   {

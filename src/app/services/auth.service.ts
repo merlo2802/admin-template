@@ -1,3 +1,10 @@
+/**
+	proyecto: Tabito Promociones
+	autor: Alvaro Merlo
+	fecha: 16-08-2020
+	email: alvaromerlo2802@gmail.com
+ */
+
 import { Injectable } from '@angular/core';
 //firebase
 import { AngularFireAuth } from  '@angular/fire/auth';

@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     if(form.invalid) {return;}
     this.auth.login(this.usuario).subscribe(resp => {
       console.log(resp);
+      this.router.navigate(['/dashboard/']);
     }, (err) => {
       console.log(err.error.error.message);
     })
@@ -32,8 +33,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginGoogleWeb().then(()=>{  
         this.logeado = true;
         console.log("inicio de sesion exitoso");
-        this.router.navigate([''])
-        
+        this.router.navigate(['/pages/']);
     });
   }
   // login() {
