@@ -6,7 +6,7 @@ import {DatatableComponent} from '@swimlane/ngx-datatable';
 /**
  * MC4 SRL
  * Santa Cruz - Bolivia
- * project: simulacion
+ * project: sfe-backoffice-ui
  * date:    09-07-19
  * author:  fmontero
  **/
@@ -141,7 +141,6 @@ export abstract class ClicComponent {
    * @param {MediaMatcher} media, se toma de la inyeccion del componente que hereda esta clase
    */
   public initialListener(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    if (this.table) { this.tableConfig(); }
     const queryListener = () => changeDetectorRef.detectChanges();
     this.xsMatcher = media.matchMedia('(max-width: 599px)');
     this.xsMatcher.addListener(queryListener);
@@ -158,6 +157,7 @@ export abstract class ClicComponent {
       if (this.xsMatcher.matches) {
         this.scrollH = true;
         this.confirmDialogWith = '90%';
+        this.dialogWidth = '99%';
         this.onXsScreen();
       }
     };
@@ -165,6 +165,7 @@ export abstract class ClicComponent {
       if (this.smMatcher.matches) {
         this.scrollH = true;
         this.confirmDialogWith = '80%';
+        this.dialogWidth = '90%';
         this.onSmScreen();
       }
     };
@@ -172,6 +173,7 @@ export abstract class ClicComponent {
       if (this.mdMatcher.matches) {
         this.scrollH = true;
         this.confirmDialogWith = '40%';
+        this.dialogWidth = '60%';
         this.onMdScreen();
       }
     };
@@ -180,6 +182,7 @@ export abstract class ClicComponent {
       if (this.lgMatcher.matches) {
         this.scrollH = false;
         this.confirmDialogWith = '575px';
+        this.dialogWidth = '50%';
         this.onLgScreen();
       }
     };
@@ -188,6 +191,7 @@ export abstract class ClicComponent {
       if (this.gt_lgMatcher.matches) {
         this.scrollH = false;
         this.confirmDialogWith = '575px';
+        this.dialogWidth = '50%';
         this.onGtLgScreen();
       }
     };
@@ -195,41 +199,67 @@ export abstract class ClicComponent {
     if (this.xsMatcher.matches) {
       this.scrollH = true;
       this.confirmDialogWith = '90%';
+      this.dialogWidth = '99%';
       this.onXsScreen();
     }
 
     if (this.smMatcher.matches) {
       this.scrollH = true;
       this.confirmDialogWith = '80%';
+      this.dialogWidth = '90%';
       this.onSmScreen();
     }
 
     if (this.mdMatcher.matches) {
       this.scrollH = true;
       this.confirmDialogWith = '40%';
+      this.dialogWidth = '60%';
       this.onMdScreen();
     }
 
     if (this.lgMatcher.matches) {
       this.scrollH = false;
       this.confirmDialogWith = '575px';
+      this.dialogWidth = '50%';
       this.onLgScreen();
     }
 
     if (this.gt_lgMatcher.matches) {
       this.scrollH = false;
       this.confirmDialogWith = '575px';
+      this.dialogWidth = '50%';
       this.onGtLgScreen();
     }
   }
 
-  private tableConfig() {
-    console.log('paso config table');
-    this.table.messages = {
-      emptyMessage: 'No se encuentran datos para mostrar',
-      totalMessage: 'en total',
-      selectedMessage: 'seleccionados'
+  public tableMessages() {
+    return {emptyMessage: 'No se encuentran datos para mostrar', totalMessage: 'en total', selectedMessage: 'seleccionados'};
+  }
+
+  public truncate(value: any, ndecimals: number) {
+    if (!value) return '0.00';
+    value = String(value);
+    const numberValue = parseFloat(value);
+    return numberValue.toFixed(ndecimals);
+  }
+
+  public confirmConfig(data: any) {
+    return {
+      width: this.confirmDialogWith,
+      minWidth: this.confirmDialogWith,
+      panelClass: ['zero-padding', 'scroll-x-hidden'],
+      data
+    };
+  }
+
+  public dialogConfig(data: any) {
+    return {
+      width: this.dialogWidth,
+      minWidth: this.dialogWidth,
+      panelClass: ['zero-padding', 'scroll-x-hidden'],
+      data
     };
   }
 }
+
 

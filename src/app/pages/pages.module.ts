@@ -10,6 +10,11 @@ import { DemoMaterialModule } from '../core/materialCommon/demomaterial.module';
 import { RubroComponent } from './rubro/rubro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogoCrearEditarRubroComponent } from './rubro/dialogo-crear-editar-rubro/dialogo-crear-editar-rubro.component';
+import { DemoTableComponent } from './demo-table/demo-table.component';
+//tabla ngxDatatableModule
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { DialogoCrearEditarRubroComponent } from './rubro/dialogo-crear-editar-r
     Graficas1Component,
     ProgressComponent,
     RubroComponent,
-    DialogoCrearEditarRubroComponent
+    DialogoCrearEditarRubroComponent,
+    DemoTableComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,9 @@ import { DialogoCrearEditarRubroComponent } from './rubro/dialogo-crear-editar-r
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxDatatableModule,
+    LayoutModule,
+    FlexLayoutModule,
     DemoMaterialModule,
     HttpClientModule,
   ],

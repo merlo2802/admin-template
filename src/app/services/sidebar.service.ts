@@ -12,7 +12,6 @@ export class SidebarService {
         {titulo: 'Main', url: '/dashboard/' },
         {titulo: 'ProgressBar', url: 'progress' },
         {titulo: 'Graficas', url: 'graficas1' },
-
       ]
     },
     {
@@ -21,7 +20,7 @@ export class SidebarService {
       submenu: [
         {titulo: 'Rubros', url: 'rubro' },
       ]
-    },
+    }
   ]
 
   constructor() { }

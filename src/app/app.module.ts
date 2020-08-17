@@ -8,7 +8,7 @@ import { PagesModule } from './pages/pages.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 //formularios 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //firebase
@@ -83,6 +83,7 @@ const customNotifierOptions: NotifierOptions = {
     AutenticacionModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
     NotifierModule.withConfig(customNotifierOptions),
