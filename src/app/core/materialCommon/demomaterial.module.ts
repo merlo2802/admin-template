@@ -131,6 +131,6 @@ import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
     OverlayModule,
     PlatformModule,
     PortalModule,
-  ]
+  ],
 })
 export class DemoMaterialModule {}

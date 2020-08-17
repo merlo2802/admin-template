@@ -18,7 +18,7 @@ export const environment = {
   apiKeyFirebase : 'AIzaSyB4lhd7035twmRiDPrVHbjxjmFtdgk1pMg',
   //documentacion sign in with email and password
   signInUrlFirebase: 'https://identitytoolkit.googleapis.com/v1/',
-  apiUrl:'https://tabito-superofertas.firebaseio.com/'
+  apiUrl:'https://tabito-superofertas.firebaseio.com/',
 };
 /*
  * For easier debugging in development mode, you can import the following file

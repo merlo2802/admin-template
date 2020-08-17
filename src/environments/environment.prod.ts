@@ -12,4 +12,5 @@ export const environment = {
   },
   apiKeyFirebase : 'AIzaSyB4lhd7035twmRiDPrVHbjxjmFtdgk1pMg',
   signInUrlFirebase: 'https://identitytoolkit.googleapis.com/v1/',
+  apiUrl:'https://tabito-superofertas.firebaseio.com/',
 };

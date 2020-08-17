@@ -24,6 +24,51 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlankComponent } from './core/blank/blank.component';
 import { AutenticacionModule } from './autenticacion/autenticacion.module';
 import { PagesComponent } from './core/menu/pages.component';
+import { MatDialog } from '@angular/material/dialog';
+import {NotifierModule, NotifierOptions} from 'angular-notifier';
+//flex layout 
+import {FlexLayoutModule} from '@angular/flex-layout';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 5
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 @NgModule({
   declarations: [
@@ -38,7 +83,9 @@ import { PagesComponent } from './core/menu/pages.component';
     AutenticacionModule,
     SharedModule,
     FormsModule,
+    FlexLayoutModule,
     HttpClientModule,
+    NotifierModule.withConfig(customNotifierOptions),
     RouterModule.forRoot(AppRoutes, {useHash:true}),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
@@ -48,7 +95,10 @@ import { PagesComponent } from './core/menu/pages.component';
     NgxSpinnerModule,
     BrowserAnimationsModule,
   ],
-  providers: [AngularFireDatabase],
+  providers: [
+    AngularFireDatabase,
+    MatDialog
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

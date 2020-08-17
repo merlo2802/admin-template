@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { PageService } from 'src/app/services/page.service';
 import { RubroModel } from 'src/app/models/rubro.model';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogoCrearEditarRubroComponent } from './dialogo-crear-editar-rubro/dialogo-crear-editar-rubro.component';
+import { ClicComponent } from 'src/app/core/utils/clic-component';
+import { Page } from 'src/app/core/utils/paginator/page';
+import { NotifierService } from 'angular-notifier';
+import { CustomOptions } from 'src/app/core/dto/custom-options';
 
 export interface PeriodicElement {
   name: string;
@@ -28,14 +34,18 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './rubro.component.html',
   styleUrls: ['./rubro.component.scss']
 })
-export class RubroComponent implements OnInit {
+export class RubroComponent extends ClicComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   rubro: RubroModel = new RubroModel();
 
   constructor(
     private pageService: PageService,
-    ) { }
+    public matDialog: MatDialog,
+    private notifier: NotifierService
+  ) { 
+    super();
+  }
 
   ngOnInit(): void {
   }
@@ -48,5 +58,51 @@ export class RubroComponent implements OnInit {
       console.log(resp);
     })
   }
+
+  abrirDialogo(){
+    const temporal = ""
+    const dialog = this.matDialog.open(DialogoCrearEditarRubroComponent, {
+      width: '650px',
+      minWidth: '650px',
+      panelClass: ['zero-padding', 'scroll-x-hidden'],
+      data: temporal
+    });
+  }
+
+
+  notifierError(error: any, type?: string) {
+    if (error && error.error) {
+      const customOptions: CustomOptions = {type: type ? type : 'error', tile: error.error.title, message: error.error.detail, template: this.customNotificationTmpl};
+      this.notifier.show(customOptions);
+    }
+  }
+
+  public flex: number ;
+  onGtLgScreen() {
+    this.flex = 10;
+    this.dialogWidth = '750px';
+  }
+
+  onLgScreen() {
+    this.flex = 15;
+    this.dialogWidth = '750px';
+  }
+
+  onMdScreen() {
+    this.flex = 25;
+    this.dialogWidth = '750px';
+  }
+
+  onSmScreen() {
+    this.flex = 100;
+    this.dialogWidth = '99%';
+  }
+
+  onXsScreen() {
+    this.flex = 100;
+    this.dialogWidth = '99%';
+  }
+
+  setPage(pageInfo: Page) {}
 
 }
