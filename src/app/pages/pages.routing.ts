@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
+import { RubroComponent } from './rubro/rubro.component';
 
 
 const PagesRoutes: Routes = [
@@ -16,6 +17,10 @@ const PagesRoutes: Routes = [
   {
     path: 'graficas1',
     component: Graficas1Component
+  },
+  {
+    path: 'rubro',
+    component: RubroComponent,
   },
 ]; 
 
