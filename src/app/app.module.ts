@@ -3,13 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './login/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
-import { PagesComponent } from './pages/pages.component';
-import { LoginComponent } from './login/login.Component';
 //formularios 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,18 +20,22 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 //EndFirebase
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlankComponent } from './core/blank/blank.component';
+import { AutenticacionModule } from './autenticacion/autenticacion.module';
+import { PagesComponent } from './core/menu/pages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    PagesComponent
+    PagesComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PagesModule,
+    AutenticacionModule,
     SharedModule,
     FormsModule,
     HttpClientModule,
@@ -45,6 +46,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

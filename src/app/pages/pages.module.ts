@@ -6,7 +6,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Pages_Routes } from './pages.routing';
 import { FormsModule } from '@angular/forms';
-
+import { DemoMaterialModule } from '../core/materialCommon/demomaterial.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     Pages_Routes,
     SharedModule,
     FormsModule,
+    DemoMaterialModule,
   ],
   exports:[
     DashboardComponent,
